@@ -1,0 +1,53 @@
+@use '../variables' as *;
+
+.site-header {
+  background: $color-button-primary;
+  height: $header-height;
+  box-shadow: $shadow-card;
+padding-inline: clamp(1rem, 4vw, 2rem);
+  @apply sticky top-0 w-full flex items-center px-4 z-50;
+}
+
+.site-header-first-section {
+  @apply flex items-center w-full gap-6;
+}
+
+.site-name {
+  font-family: $font-family-sans-1;
+  color: $color-text-inverse;
+  margin: 0;
+  letter-spacing: 1px;
+
+  @apply text-2xl font-bold;
+}
+
+.site-nav {
+   @apply ml-auto flex items-center;
+  &.mobile-active {
+    @apply flex md:hidden flex-col absolute top-full left-0 w-full p-4;
+    background: $color-button-primary;
+    max-height: 400px;
+  }
+}
+
+.nav-list {
+  @apply flex gap-3 md:gap-6 text-sm md:text-base font-semibold p-0 m-0;
+
+  li {
+    list-style: none;
+
+    a {
+      color: $color-text-inverse;
+      @apply transition-colors whitespace-nowrap;
+
+      &:hover {
+        @apply underline underline-offset-4 decoration-2 decoration-yellow-400;
+      }
+    }
+  }
+}
+
+
+body{
+  background-color: $color-background-primary;
+}

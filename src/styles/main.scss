@@ -1,0 +1,18 @@
+/* Sass Partials */
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'placeholders' as *;
+@use 'layout';
+@use 'components';
+@use 'components/header' as *;
+@use 'components/ticker' as *;
+@use 'components/banner' as *;
+@use 'components/aboutme' as *;
+@use 'components/projects' as *;
+@use 'components/skills' as *;
+@use 'components/footer' as *;
+/* Tailwind core */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+

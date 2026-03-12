@@ -1,0 +1,54 @@
+// ========== COLORS ==========
+$color-background-primary: #0f172a;     
+$color-background-secondary: #1e293b;    
+$color-background-elevated: #334155;     
+$color-button-primary: #030712;  
+$color-button-primary-hover: #475569;
+
+
+// Text
+$color-text-primary: #f1f5f9;            // off-white primary text (was dark)
+$color-text-secondary: #cbd5e1;          // light gray secondary (was muted)
+$color-text-muted: #94a3b8;              // soft slate (was soft slate)
+$color-text-inverse: #ffffff;            // white inverse
+
+// Brand
+$brand-primary: #3b82f6;                 // bright blue (was darker blue)
+$brand-primary-hover: #60a5fa;           // lighter blue on hover
+$brand-accent: #f59e0b;                  // amber/gold accent (was yellow)
+
+// Market
+$color-market-up: #f1f5f2;               // bright green emerald
+$color-market-down: #ef4444;             // bright red
+$color-market-neutral: #94a3b8;          // neutral gray
+
+// Borders
+$color-border-primary: #334155;          // dark slate borders (was light)
+$color-divider: #475569;                 // darker dividers (was light)
+
+// Overlays
+$color-overlay-dark: rgba(0, 0, 0, 0.75);     // darker overlay (was 0.55)
+$color-overlay-light: rgba(255, 255, 255, 0.1); // light overlay on dark (was 0.75)
+
+// Footer
+$color-footer-background: #030712;       // black footer (was dark blue)
+
+// Focus
+$color-focus: #60a5fa;                   // bright blue focus
+
+// Transition base
+$transition-base: 0.3s ease;
+
+// ========== FONT FAMILIES ==========
+$font-family-sans-1: 'Inter', system-ui, -apple-system, sans-serif;
+$font-family-sans-2: 'Manrope', system-ui, -apple-system, sans-serif;
+$font-family-serif: 'Plus Jakarta Sans', system-ui, -apple-system, serif;
+
+// ========== HEADER SIZING ==========
+$header-height: 70px;
+
+// ========== SHADOWS ==========
+$shadow-card: 0 4px 10px rgba(0,0,0,.2);
+
+
+ 

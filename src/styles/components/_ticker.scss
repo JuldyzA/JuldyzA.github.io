@@ -1,0 +1,43 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use '../placeholders' as *;
+
+.stock-ticker-section{
+  @apply w-full overflow-hidden;
+  background-color: $color-button-primary; 
+}
+
+.stock-ticker-container{
+  @apply max-w-7xl mx-auto overflow-hidden relative;
+}
+
+.tickers{
+  @apply flex gap-8 shrink-0 whitespace-nowrap;
+  width: fit-content;
+  animation: scroll 30s linear infinite;
+}
+
+.ticker-container {
+  @apply flex items-center justify-center gap-3 px-4 py-2 rounded-xl transition-all duration-300;
+  color: $color-text-primary;
+  min-width: 10rem;
+
+  &:hover {
+    color: $brand-accent;
+    transform: translateY(-1px);
+    box-shadow: $shadow-card;
+  }
+}
+
+.ticker-icon {
+  @apply w-5 h-5 shrink-0 transition-colors;
+}
+
+.stock-name {
+  @apply font-medium text-sm;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
