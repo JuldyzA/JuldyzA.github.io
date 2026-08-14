@@ -1,26 +1,82 @@
+import { qaProjects } from "./data/qaProjects.js";
+import { devProjects } from "./data/devProjects.js";
+
 document.addEventListener("DOMContentLoaded", () => {
 
 // Year
 const year = document.getElementById("year");
 year.textContent = new Date().getFullYear();
 
-var myIndex = 0;
+const testingTrack = document.querySelector(".testing-track");
+const projectsTrack = document.querySelector(".projects-track");
 
-function carousel() {
-  const slides = document.getElementsByClassName("banner-slide");
-  if (!slides.length) return; // 👈 critical
-
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-
-  myIndex++;
-  if (myIndex > slides.length) myIndex = 1;
-  slides[myIndex - 1].style.display = "block";
-
-  setTimeout(carousel, 9000);
+if (testingTrack) {
+  const qaHtml = qaProjects.map(proj => `
+    <div class="banner-slide">
+      <a href="${proj.link}">
+        <img class="auto-slide" src="${proj.image}" alt="${proj.title}" />
+        <div class="slider-headlines">
+          <h1 class="slider-title">${proj.title}</h1>
+          <p class="slider-par">${proj.subtitle}</p>
+        </div>
+      </a>
+    </div>
+  `).join('');
+  
+  testingTrack.innerHTML = qaHtml;
 }
-carousel();
+
+if (projectsTrack) {
+  const devHtml = devProjects.map(proj => `
+    <div class="banner-slide">
+      <a href="${proj.link}">
+        <img class="auto-slide" src="${proj.image}" alt="${proj.title}" />
+        <div class="slider-headlines">
+          <h1 class="slider-title">${proj.title}</h1>
+          <p class="slider-par">${proj.subtitle}</p>
+        </div>
+      </a>
+    </div>
+  `).join('');
+  
+  projectsTrack.innerHTML = devHtml;
+
+  // Sync Grid Below
+  const projectsGrid = document.querySelector(".center-banner");
+  if (projectsGrid) {
+    projectsGrid.innerHTML = devProjects.map(proj => `
+      <a href="${proj.link}" class="center-section">
+        <div class="center-img">
+          <img class="center-section-img" src="${proj.image}" alt="${proj.title}">
+        </div>
+        <h2 class="dek">${proj.title}</h2>
+      </a>
+    `).join('');
+  }
+}
+
+function initCarousels() {
+  const carousels = document.querySelectorAll('.auto-track');
+  
+  carousels.forEach(track => {
+    let index = 0;
+    const slides = track.querySelectorAll('.banner-slide');
+    if (!slides.length) return;
+    
+    // Initialize first slide
+    slides.forEach(s => s.style.display = "none");
+    slides[0].style.display = "block";
+    
+    setInterval(() => {
+      slides.forEach(s => s.style.display = "none");
+      index++;
+      if (index >= slides.length) index = 0;
+      slides[index].style.display = "block";
+    }, 9000);
+  });
+}
+initCarousels();
+
 // Science Section Toggle
 const scienceHeader = document.querySelector(".science-header");
 const scienceContent = document.getElementById("science-content");
@@ -112,18 +168,20 @@ overlaySlot.addEventListener("click", (e) => {
 
 // ads close btn
 const adsBox = document.getElementById("riverAds");
-const adsBannerCloseBtn = adsBox.querySelector(".banner-close");
-const banner = adsBox.querySelector(".banner");
-const DELAY_MS = 3000;
-setTimeout(()=>{
-  adsBox.classList.add("is-visible");
-  adsBox.classList.remove("is-delayed");
-}, DELAY_MS);
+if (adsBox) {
+  const adsBannerCloseBtn = adsBox.querySelector(".banner-close");
+  const banner = adsBox.querySelector(".banner");
+  const DELAY_MS = 3000;
+  setTimeout(()=>{
+    adsBox.classList.add("is-visible");
+    adsBox.classList.remove("is-delayed");
+  }, DELAY_MS);
 
-
-adsBannerCloseBtn.addEventListener("click", () => {
-  
-  banner.classList.remove("is-pulsing");
-adsBox.style.display = "none";
-});
+  if (adsBannerCloseBtn) {
+    adsBannerCloseBtn.addEventListener("click", () => {
+      if (banner) banner.classList.remove("is-pulsing");
+      adsBox.style.display = "none";
+    });
+  }
+}
 });

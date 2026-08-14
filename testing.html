@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing & Quality Assurance | Juldyz Akhmetova</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="public/tailwind.css">
+</head>
+<body>
+    <div class="detail-container">
+        <a href="index.html" class="back-link">← Back to Portfolio</a>
+        
+        <header class="detail-header">
+            <h1>Testing & Quality Strategy</h1>
+            <p class="intro">
+                Ensuring application reliability through automated testing, rigorous API validation, and performance benchmarking. I specialize in building quality gates that scale with development speed.
+            </p>
+        </header>
+
+        <section id="automation" class="detail-section">
+            <h2 class="section-title">Automated Test Suites</h2>
+            <div class="case-study">
+                <div class="detail-grid">
+                    <div>
+                        <h3>End-to-End Excellence</h3>
+                        <p>Implemented comprehensive E2E testing for complex web applications using Playwright and Cypress. Reduced regression bugs by 40% through automated UI validation.</p>
+                        <div style="margin-top: 1rem;">
+                            <span class="tech-tag">Playwright</span>
+                            <span class="tech-tag">Cypress</span>
+                            <span class="tech-tag">Jest</span>
+                        </div>
+                    </div>
+                    <div class="code-block">
+test('verify auction bidding flow', async ({ page }) => {
+  await page.goto('/auction/123');
+  await page.fill('#bid-input', '500');
+  await page.click('#place-bid');
+  await expect(page.locator('.status-msg'))
+    .toHaveText('Bid placed successfully');
+});
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="bugs" class="detail-section">
+            <h2 class="section-title">Technical Bug Documentation</h2>
+            <div class="case-study">
+                <h3>Case Study: Identifying API Race Conditions</h3>
+                <p>During the development of the Tool Village auction marketplace, I identified a critical race condition in the bidding engine using Postman and Chrome DevTools. By documenting the exact sequence of events, I helped the backend team implement a locking mechanism to prevent duplicate wins.</p>
+                <p><strong>Tools Used:</strong> Jira, Postman, Sentry, Chrome DevTools</p>
+            </div>
+        </section>
+
+        <section id="performance" class="detail-section">
+            <h2 class="section-title">Performance & Security</h2>
+            <div class="case-study">
+                <div class="detail-grid">
+                    <div>
+                        <h3>Load & Stress Testing</h3>
+                        <p>Simulated high-traffic scenarios (up to 5000 concurrent users) using k6 to validate bidding endpoint stability. Identified bottleneck in database query execution time.</p>
+                    </div>
+                    <div class="code-block">
+export default function () {
+  http.get('https://api.toolvillage.com/v1/live');
+  sleep(1);
+}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cicd" class="detail-section">
+            <h2 class="section-title">CI/CD Quality Gates</h2>
+            <div class="case-study">
+                <h3>Zero-Bugs Pipeline</h3>
+                <p>Architected GitHub Actions workflows that automatically run linting, unit tests, and security scans on every pull request. No code reaches production without passing the "Quality Gate".</p>
+                <div style="margin-top: 1rem;">
+                    <span class="tech-tag">GitHub Actions</span>
+                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">ESLint</span>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

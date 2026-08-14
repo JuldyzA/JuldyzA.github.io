@@ -1,0 +1,260 @@
+@use '../variables' as *;
+
+/* ===== DETAIL PAGES (Projects & Testing) ===== */
+
+body {
+    background-color: $color-background-primary !important;
+    color: $color-text-primary !important;
+}
+
+.detail-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    color: $color-text-primary;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: $brand-accent;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: translateX(-5px);
+    }
+}
+
+.detail-header {
+    h1 {
+        font-family: 'Manrope', sans-serif;
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        color: $color-text-inverse;
+        background: linear-gradient(to right, $color-text-inverse, $brand-accent);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        @media (max-width: 768px) {
+            font-size: 2.5rem;
+        }
+    }
+
+    .intro {
+        font-size: 1.2rem;
+        color: $color-text-secondary;
+        margin-bottom: 4rem;
+        line-height: 1.6;
+    }
+}
+
+.detail-section {
+    margin-bottom: 3rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .section-title {
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        color: $color-text-inverse;
+
+        &::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: rgba($brand-accent, 0.3);
+        }
+    }
+}
+
+.case-study {
+    background: $color-background-secondary;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid rgba($color-text-inverse, 0.1);
+    margin-bottom: 2rem;
+    color: $color-text-primary;
+
+    .project-image-container {
+        margin-bottom: 2rem;
+        border-radius: 1rem;
+        overflow: hidden;
+        border: 1px solid rgba($color-text-inverse, 0.1);
+        text-align: center;
+        background: rgba(0,0,0,0.2);
+        max-width: 400px;
+        margin: 0 auto 2rem auto;
+
+        img {
+            width: 100%;
+            height: auto;
+            max-height: 250px;
+            display: block;
+            object-fit: cover;
+        }
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        color: $brand-accent;
+        margin-top: 0;
+    }
+    
+    p {
+        color: $color-text-secondary;
+        line-height: 1.7;
+    }
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.tech-tag {
+    display: inline-block;
+    background: rgba($brand-accent, 0.15);
+    color: $brand-accent;
+    padding: 0.4rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-right: 0.6rem;
+    margin-bottom: 0.6rem;
+    border: 1px solid rgba($brand-accent, 0.2);
+}
+
+.code-block {
+    background: $color-button-primary;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    color: #10b981;
+    overflow-x: auto;
+    border: 1px solid rgba($color-text-inverse, 0.1);
+}
+
+/* Premium Component Styles */
+.feature-card {
+    background: rgba($color-text-inverse, 0.03);
+    border: 1px solid rgba($color-text-inverse, 0.08);
+    padding: 1.2rem 1.5rem;
+    border-radius: 0.75rem;
+    margin-bottom: 0.75rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    font-size: 1rem;
+    color: $color-text-secondary;
+    line-height: 1.6;
+
+    &:hover {
+        background: rgba($color-text-inverse, 0.06);
+        transform: translateY(-3px);
+        border-color: rgba($brand-accent, 0.4);
+        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    .feature-icon {
+        color: $brand-accent;
+        flex-shrink: 0;
+        margin-top: 0.2rem;
+    }
+}
+
+.highlight-box {
+    background: linear-gradient(145deg, rgba($brand-accent, 0.12) 0%, rgba($color-background-primary, 0.5) 100%);
+    border: 1px solid rgba($brand-accent, 0.25);
+    border-left: 5px solid $brand-accent;
+    padding: 2.5rem;
+    border-radius: 0.5rem 1.5rem 1.5rem 0.5rem;
+    margin-top: 4rem;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    color: $color-text-primary;
+    font-size: 1.1rem;
+    line-height: 1.5;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.section-subtitle {
+    color: $brand-accent;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.github-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba($color-text-inverse, 0.05);
+    color: $color-text-inverse;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    border: 1px solid rgba($color-text-inverse, 0.1);
+    margin-bottom: 2rem;
+
+    &:hover {
+        background: rgba($color-text-inverse, 0.1);
+        border-color: rgba($color-text-inverse, 0.2);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+}
+
+.live-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba($brand-accent, 0.1);
+    color: $brand-accent;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    border: 1px solid rgba($brand-accent, 0.3);
+    margin-bottom: 2rem;
+
+    &:hover {
+        background: rgba($brand-accent, 0.2);
+        border-color: $brand-accent;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba($brand-accent, 0.25);
+    }
+}
+

@@ -34,23 +34,76 @@
 
 /* Skill card */
 
-.skill-card {
-  @apply px-2 py-2 md:px-6 md:py-5 rounded-xl transition overflow-hidden;
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
 
-  border: 1px solid rgba($color-border-primary, 0.2);
+.skill-card {
+  @apply px-2 py-2 md:px-6 md:py-5 transition relative;
+  border-radius: 1.5rem;
+  z-index: 1;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  /* The glowing animated border */
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background: conic-gradient(
+      transparent, 
+      rgba($brand-accent, 0.2), 
+      $brand-accent, 
+      transparent 30%
+    );
+    animation: spin 4s linear infinite;
+    z-index: -2;
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+  }
+
+  /* The inner card background */
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    background: $color-background-secondary;
+    border-radius: calc(1.5rem - 1px);
+    z-index: -1;
+    transition: background 0.3s ease;
+  }
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: $shadow-card;
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5), 0 0 30px rgba($brand-accent, 0.3);
+
+    &::before {
+      opacity: 1;
+      animation: spin 2s linear infinite; /* Spin faster on hover */
+    }
+
+    &::after {
+      background: rgba($color-background-secondary, 0.9);
+    }
   }
 }
 
 /* Skill title */
 
 .skill-title {
-  @apply text-2xl font-bold mb-2;
+  @apply text-2xl font-bold mb-2 flex items-center gap-2;
   color: $brand-accent;
   transition: all .3s ease;
+
+  &::before {
+    content: '>';
+    font-family: monospace;
+    font-size: 1.2rem;
+    opacity: 0.5;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
 }
 
 /* Hidden skills list */
@@ -59,23 +112,40 @@
   max-height: 0;
   opacity: 0;
   overflow: hidden;
-  transition: all .4s ease;
+  transition: all .5s cubic-bezier(0.4, 0, 0.2, 1);
 
   @apply text-sm uppercase tracking-wide leading-relaxed mt-3 pt-3 border-t;
 
-  border-color: rgba($color-border-primary, 0.2);
+  border-color: rgba($brand-accent, 0.2);
   color: $color-text-secondary;
+
+  li {
+    margin-bottom: 0.5rem;
+    transition: transform 0.2s ease, color 0.2s ease;
+    cursor: default;
+
+    &:hover {
+      transform: translateX(8px);
+      color: $brand-accent;
+    }
+  }
 }
 
 /* Reveal on hover */
 
 .skill-card:hover .skill-items {
-  max-height: 200px;
+  max-height: 300px;
   opacity: 1;
+  padding-top: 1rem;
 }
 
 .skill-card:hover .skill-title {
-  color: $color-text-secondary;
+  color: $color-text-primary;
+
+  &::before {
+    opacity: 1;
+    transform: translateX(4px);
+  }
 }
 
 /* ===== EXPERIENCE SECTION ===== */
