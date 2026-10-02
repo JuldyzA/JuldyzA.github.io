@@ -308,7 +308,7 @@ export const devProjects = [
     link: "#moviedb-app",
     links: {
       github: "https://github.com/JuldyzA/red-carpet-moviedb",
-      live: "https://red-carpet-moviedb-4czgq9fgo-juldyzas-projects.vercel.app/"
+      live: "https://red-carpet-moviedb-ey7p-ejbkoj8ku-juldyzas-projects.vercel.app/"
     },
     images: [
       {
