@@ -295,9 +295,22 @@ document.addEventListener("DOMContentLoaded", () => {
                   <span class="field-label">Password:</span>
                   <code class="field-value">${project.demoCredentials.password}</code>
                 </div>
+                <div class="demo-field">
+                  <span class="field-label">Access:</span>
+                  <span class="field-value">${project.demoCredentials.accessLevel}</span>
+                </div>
+                <div class="demo-field">
+                  <span class="field-label">Access:</span>
+                  <span class="field-value">${project.demoCredentials.loginInstructions}</span>
+
+                </div>
+                <div class="demo-field">
+                  <span class="field-label">Notes:</span>
+                  <span class="field-value">${project.demoCredentials.notes}</span>
+                </div>
               </div>
             </div>
-          ` : ''}
+            ` : ''}
 
           <!-- Interactive Photo Gallery Showcase -->
           <div class="project-gallery-showcase">

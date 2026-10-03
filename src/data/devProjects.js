@@ -14,7 +14,10 @@ export const devProjects = [
     demoCredentials: {
       email: "counsellordemo@test.ca",
       password: "DemoPassword@2026",
-      role: "Counsellor Role"
+      role: "Counsellor Role",
+      accessLevel: "CareCompass Demo — First Load Notice",
+      loginInstructions: "Use the credentials above to sign in. This application is hosted on a free-tier service. To reduce resource usage, the application and database may temporarily pause when they are inactive.",
+      notes: "On your first visit, the application may take 30–60 seconds to wake up and connect to the database. Thank you for your patience while exploring the CareCompass demo!"
     },
     images: [
       {
